@@ -26,10 +26,10 @@ function Modal({ showModal, hide, modalInputs, edit }) {
     const handleEdit = () => {
       edit(
         {
-          th: inputs.th,
-          th: inputs.th,
-          th: inputs.th,
-          th: inputs.th,
+            id: inputs.tidh,
+            product: inputs.product,
+            quantity: inputs.quantity,
+            price: inputs.price,
         },
         modalInputs.id
       );
@@ -68,55 +68,55 @@ function Modal({ showModal, hide, modalInputs, edit }) {
               <form>
                 <div className="form-group">
                   <label for="th1" className="col-form-label">
-                    Th
+                  id
                   </label>
                   <input
                     className="form-control"
                     type="text"
                     id="th1"
-                    value={inputs.th}
-                    onChange={(e) => control(e, "th")}
-                    placeholder="Enter th"
+                    value={inputs.id}
+                    onChange={(e) => control(e, "id")}
+                    placeholder="Enter id"
                   />
                 </div>
                 <div className="form-group">
                   <label for="th2" className="col-form-label">
-                    Th
+                  product
                   </label>
                   <input
                     className="form-control"
                     type="text"
                     id="th2"
-                    value={inputs.th}
-                    onChange={(e) => control(e, "th")}
-                    placeholder="Enter th"
+                    value={inputs.product}
+                    onChange={(e) => control(e, "product")}
+                    placeholder="Enter product"
                   />
                 </div>
                 <div className="form-group">
                   <label for="th3" className="col-form-label">
-                    Th
+                  quantity
                   </label>
                   <input
                     className="form-control"
                     type="text"
                     id="th3"
-                    value={inputs.th}
-                    onChange={(e) => control(e, "th")}
-                    placeholder="Enter th"
+                    value={inputs.quantity}
+                    onChange={(e) => control(e, "quantity")}
+                    placeholder="Enter quantity"
                   />
                 </div>
   
                 <div className="form-group">
                   <label for="th4" className="col-form-label">
-                    Th
+                  price
                   </label>
                   <input
                     className="form-control"
                     type="text"
                     id="th4"
-                    value={inputs.th}
-                    onChange={(e) => control(e, "th")}
-                    placeholder="Enter th"
+                    value={inputs.price}
+                    onChange={(e) => control(e, "price")}
+                    placeholder="Enter price"
                   />
                 </div>
   
