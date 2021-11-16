@@ -13,7 +13,7 @@ app.use(express.json());
 const con = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: "mysql",
+    password: "root",
     database: "egzaminas",
 });
 
@@ -23,10 +23,10 @@ con.connect(function(err) {
 });
 
 //Read Node
-app.get('/lentele', (req, res) => {
+app.get('/products', (req, res) => {
     const sql = `
         SELECT *
-        FROM lentele
+        FROM products
     `;
     con.query(sql, (err, results) => {
         if (err) {
@@ -37,17 +37,17 @@ app.get('/lentele', (req, res) => {
 })
 
 //Create Node
-app.post('/lentele', (req, res) => {
+app.post('/products', (req, res) => {
     const sql = `
-        INSERT INTO lentele
-        (th, th, th, th)
+        INSERT INTO products
+        (id, product, quantity, price)
         VALUES (?, ?, ?, ?)
     `;
     con.query(sql, [
-        req.body.th,
-        req.body.th,
-        req.body.th,
-        req.body.th
+        req.body.id,
+        req.body.product,
+        req.body.quantity,
+        req.body.price
     ], (err, results) => {
         if (err) {
             throw err;
@@ -57,17 +57,17 @@ app.post('/lentele', (req, res) => {
 })
 
 //Update Node
-app.put('/lentele/:id', (req, res) => {
+app.put('/products/:id', (req, res) => {
     const sql = `
-        UPDATE lentele
-        SET th = ?, th = ?, th = ?, th = ?
+        UPDATE products
+        SET id = ?, product = ?, quantity = ?, price = ?
         WHERE id = ?
     `;
     con.query(sql, [
-        req.body.th,
-        req.body.th,
-        req.body.th,
-        req.body.th,
+        req.body.id,
+        req.body.product,
+        req.body.quantity,
+        req.body.price,
         req.params.id
     ], (err, results) => {
         if (err) {
@@ -78,9 +78,9 @@ app.put('/lentele/:id', (req, res) => {
 })
 
 //Delete Node
-app.delete('/lentele/:id', (req, res) => {
+app.delete('/products/:id', (req, res) => {
     const sql = `
-        DELETE FROM lentele
+        DELETE FROM products
         WHERE id = ?
         `;
     con.query(sql, [req.params.id], (err, result) => {
@@ -93,11 +93,11 @@ app.delete('/lentele/:id', (req, res) => {
 
 
 //Filter Node
-app.get('/lentele-filter/:t', (req, res) => {
+app.get('/products-filter/:t', (req, res) => {
     const sql = `
         SELECT *
-        FROM lentele
-        WHERE th = ?
+        FROM products
+        WHERE id = ?
     `;
     
     con.query(sql, [req.params.t], (err, results) => {
@@ -108,12 +108,14 @@ app.get('/lentele-filter/:t', (req, res) => {
     })
 })
 
+
+
 //Search Node
-app.get('/lentele-key', (req, res) => {
+app.get('/products-quantity', (req, res) => {
     const sql = `
         SELECT *
         FROM lentele
-        WHERE key LIKE ?
+        WHERE quantity LIKE ?
     `;
     con.query(sql, ['%' + req.query.s + '%'], (err, results) => {
         if (err) {
