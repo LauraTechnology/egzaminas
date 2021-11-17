@@ -53,22 +53,25 @@ function App() {
               <div className="card-header">List of X</div>
               <div className="card-body">
                 <table className="table">
+                  <tbody>
                   <tr>
                     <id>id</id>
                     <product>product</product>
-                    <quantity>quantity</tquantityh>
+                    <quantity>quantity</quantity>
                     <price>price</price>
                     <th>Edit</th>
                     <th>Delete</th>
                   </tr>
-                  <Modal
+                  
+                  <List table={table} modal={modal} />
+                  </tbody>
+                </table>
+                <Modal
                     showModal={showModal}
                     modalInputs={modalInputs}
                     hide={hide}
                     edit={edit}
                   />
-                  <List table={table} modal={modal} />
-                </table>
               </div>
             </div>
           </div>
