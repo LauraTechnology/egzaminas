@@ -72,7 +72,7 @@ function Modal({ showModal, hide, modalInputs, edit }) {
                   </label>
                   <input
                     className="form-control"
-                    type="text"
+                    type="number"
                     id="th1"
                     value={inputs.id}
                     onChange={(e) => control(e, "id")}
@@ -98,7 +98,7 @@ function Modal({ showModal, hide, modalInputs, edit }) {
                   </label>
                   <input
                     className="form-control"
-                    type="text"
+                    type="number"
                     id="th3"
                     value={inputs.quantity}
                     onChange={(e) => control(e, "quantity")}
@@ -112,7 +112,7 @@ function Modal({ showModal, hide, modalInputs, edit }) {
                   </label>
                   <input
                     className="form-control"
-                    type="text"
+                    type="number"
                     id="th4"
                     value={inputs.price}
                     onChange={(e) => control(e, "price")}
