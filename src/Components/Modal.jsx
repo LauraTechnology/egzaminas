@@ -67,7 +67,7 @@ function Modal({ showModal, hide, modalInputs, edit }) {
             <div className="modal-body">
               <form>
                 <div className="form-group">
-                  <label for="th1" className="col-form-label">
+                  <label htmlFor="th1" className="col-form-label">
                   id
                   </label>
                   <input
@@ -80,7 +80,7 @@ function Modal({ showModal, hide, modalInputs, edit }) {
                   />
                 </div>
                 <div className="form-group">
-                  <label for="th2" className="col-form-label">
+                  <label htmlFor="th2" className="col-form-label">
                   product
                   </label>
                   <input
@@ -93,7 +93,7 @@ function Modal({ showModal, hide, modalInputs, edit }) {
                   />
                 </div>
                 <div className="form-group">
-                  <label for="th3" className="col-form-label">
+                  <label htmlFor="th3" className="col-form-label">
                   quantity
                   </label>
                   <input
@@ -107,7 +107,7 @@ function Modal({ showModal, hide, modalInputs, edit }) {
                 </div>
   
                 <div className="form-group">
-                  <label for="th4" className="col-form-label">
+                  <label htmlFor="th4" className="col-form-label">
                   price
                   </label>
                   <input
