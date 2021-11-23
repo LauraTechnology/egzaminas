@@ -10,15 +10,16 @@ function App() {
   const [showModal, setShowModal] = useState(false);
   const [modalInputs, setModalInputs] = useState({
     id: "",
-    product: "",
-    quantity: "",
-    price: "",
+    registration_code: "",
+    is_busy: "",
+    last_use_time: "",
+    total_ride_kilometers: "",
   });
 
 //Read React
   useEffect(() => {
     axios
-      .get("http://localhost:3003/products")
+      .get("http://localhost:3003/kolt_scooters")
       .then((res) => {
         setTable(res.data);
       })
@@ -28,7 +29,7 @@ function App() {
 //Update React
   const edit = (item, id) => {
     setShowModal(false);
-    axios.put('http://localhost:3003/products/' + id, item)
+    axios.put('http://localhost:3003/kolt_scooters/' + id, item)
     .then(res => {
         setLastUpdate(Date.now());
     })
@@ -55,10 +56,11 @@ function App() {
                 <table className="table">
                   <tbody>
                   <tr>
-                    <id>id</id>
-                    <product>product</product>
-                    <quantity>quantity</quantity>
-                    <price>price</price>
+                    <th>id</th>
+                    <th>registration_code</th>
+                    <th>is_busy</th>
+                    <th>last_use_time</th>
+                    <th>total_ride_kilometers</th>
                     <th>Edit</th>
                     <th>Delete</th>
                   </tr>
