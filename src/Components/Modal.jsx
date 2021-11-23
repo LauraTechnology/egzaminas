@@ -70,20 +70,20 @@ function Modal({ showModal, hide, modalInputs, edit }) {
             <div className="modal-body">
               <form>
                 <div className="form-group">
-                  <label htmlFor="th1" className="col-form-label">
+                  <label htmlFor="id" className="col-form-label">
                   id
                   </label>
                   <input
                     className="form-control"
                     type="number"
-                    id="th1"
+                    id="id"
                     value={inputs.id}
                     onChange={(e) => control(e, "id")}
                     placeholder="Enter id"
                   />
                 </div>
                 <div className="form-group">
-                  <label htmlFor="th2" className="col-form-label">
+                  <label htmlFor="registration_code" className="col-form-label">
                   registration_code
                   </label>
                   <input
