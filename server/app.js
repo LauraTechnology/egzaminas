@@ -23,10 +23,10 @@ con.connect(function(err) {
 });
 
 //Read Node
-app.get('/products', (req, res) => {
+app.get('/kolt_scooters', (req, res) => {
     const sql = `
         SELECT *
-        FROM products
+        FROM kolt_scooters
     `;
     con.query(sql, (err, results) => {
         if (err) {
@@ -37,9 +37,9 @@ app.get('/products', (req, res) => {
 })
 
 //Create Node
-app.post('/products', (req, res) => {
+app.post('/kolt_scooters', (req, res) => {
     const sql = `
-        INSERT INTO products
+        INSERT INTO kolt_scooters
         (id, product, quantity, price)
         VALUES (?, ?, ?, ?)
     `;
@@ -57,9 +57,9 @@ app.post('/products', (req, res) => {
 })
 
 //Update Node
-app.put('/products/:id', (req, res) => {
+app.put('/kolt_scooters/:id', (req, res) => {
     const sql = `
-        UPDATE products
+        UPDATE kolt_scooters
         SET id = ?, product = ?, quantity = ?, price = ?
         WHERE id = ?
     `;
@@ -78,9 +78,9 @@ app.put('/products/:id', (req, res) => {
 })
 
 //Delete Node
-app.delete('/products/:id', (req, res) => {
+app.delete('/kolt_scooters/:id', (req, res) => {
     const sql = `
-        DELETE FROM products
+        DELETE FROM kolt_scooters
         WHERE id = ?
         `;
     con.query(sql, [req.params.id], (err, result) => {
@@ -93,10 +93,10 @@ app.delete('/products/:id', (req, res) => {
 
 
 //Filter Node
-app.get('/products-filter/:t', (req, res) => {
+app.get('/kolt_scooters-filter/:t', (req, res) => {
     const sql = `
         SELECT *
-        FROM products
+        FROM kolt_scooters
         WHERE id = ?
     `;
     
@@ -111,7 +111,7 @@ app.get('/products-filter/:t', (req, res) => {
 
 
 //Search Node
-app.get('/products-quantity', (req, res) => {
+app.get('/kolt_scooters-quantity', (req, res) => {
     const sql = `
         SELECT *
         FROM lentele
