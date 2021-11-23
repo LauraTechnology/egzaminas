@@ -40,14 +40,15 @@ app.get('/kolt_scooters', (req, res) => {
 app.post('/kolt_scooters', (req, res) => {
     const sql = `
         INSERT INTO kolt_scooters
-        (id, product, quantity, price)
+        (id, registration_code, is_busy, last_use_time)
         VALUES (?, ?, ?, ?)
     `;
     con.query(sql, [
         req.body.id,
-        req.body.product,
-        req.body.quantity,
-        req.body.price
+        req.body.registration_code,
+        req.body.is_busy,
+        req.body.last_use_time,
+        req.body.total_ride_kilometers
     ], (err, results) => {
         if (err) {
             throw err;
@@ -60,14 +61,15 @@ app.post('/kolt_scooters', (req, res) => {
 app.put('/kolt_scooters/:id', (req, res) => {
     const sql = `
         UPDATE kolt_scooters
-        SET id = ?, product = ?, quantity = ?, price = ?
+        SET id = ?, registration_code = ?, is_busy = ?, last_use_time = ?, total_ride_kilometers = ?
         WHERE id = ?
     `;
     con.query(sql, [
         req.body.id,
-        req.body.product,
-        req.body.quantity,
-        req.body.price,
+        req.body.registration_code,
+        req.body.is_busy,
+        req.body.last_use_time,
+        req.body.total_ride_kilometers
         req.params.id
     ], (err, results) => {
         if (err) {
@@ -111,11 +113,11 @@ app.get('/kolt_scooters-filter/:t', (req, res) => {
 
 
 //Search Node
-app.get('/kolt_scooters-quantity', (req, res) => {
+app.get('/kolt_scooters-is_busy', (req, res) => {
     const sql = `
         SELECT *
         FROM lentele
-        WHERE quantity LIKE ?
+        WHERE is_busy LIKE ?
     `;
     con.query(sql, ['%' + req.query.s + '%'], (err, results) => {
         if (err) {
