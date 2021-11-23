@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 
 function Modal({ showModal, hide, modalInputs, edit }) {
     const [inputs, setInputs] = useState({
-        id: "",
         registration_code: "",
         is_busy: "",
         last_use_time: "",
@@ -17,7 +16,6 @@ function Modal({ showModal, hide, modalInputs, edit }) {
   
     useEffect(() => {
       setInputs({
-        id: modalInputs.id,
         registration_code: modalInputs.registration_code,
         is_busy: modalInputs.is_busy,
         last_use_time: modalInputs.last_use_time,
@@ -28,7 +26,6 @@ function Modal({ showModal, hide, modalInputs, edit }) {
     const handleEdit = () => {
       edit(
         {
-            id: inputs.id,
             registration_code: inputs.registration_code,
             is_busy: inputs.is_busy,
             last_use_time: inputs.last_use_time,
@@ -73,14 +70,7 @@ function Modal({ showModal, hide, modalInputs, edit }) {
                   <label htmlFor="id" className="col-form-label">
                   id
                   </label>
-                  <input
-                    className="form-control"
-                    type="number"
-                    id="id"
-                    value={inputs.id}
-                    onChange={(e) => control(e, "id")}
-                    placeholder="Enter id"
-                  />
+                 
                 </div>
                 <div className="form-group">
                   <label htmlFor="registration_code" className="col-form-label">
@@ -115,7 +105,7 @@ function Modal({ showModal, hide, modalInputs, edit }) {
                   </label>
                   <input
                     className="form-control"
-                    type="number"
+                    type="date"
                     id="last_use_time"
                     value={inputs.last_use_time}
                     onChange={(e) => control(e, "last_use_time")}
