@@ -1,7 +1,9 @@
-function Item({ data, modal }) {
+function Item({ data, modal, remove }) {
     const showEdit = () => {
       modal(data);
     };
+
+   
   
     return (
       <tr>
@@ -16,7 +18,7 @@ function Item({ data, modal }) {
         </button>
         </td>
         <td>
-        <button className="btn btn-danger">
+        <button className="btn btn-danger" onClick={() => remove(data.id)}>
           Delete
         </button>
         </td>
