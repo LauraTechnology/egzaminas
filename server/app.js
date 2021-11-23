@@ -69,7 +69,7 @@ app.put('/kolt_scooters/:id', (req, res) => {
         req.body.registration_code,
         req.body.is_busy,
         req.body.last_use_time,
-        req.body.total_ride_kilometers
+        req.body.total_ride_kilometers,
         req.params.id
     ], (err, results) => {
         if (err) {
