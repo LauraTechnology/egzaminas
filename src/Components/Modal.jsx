@@ -3,9 +3,10 @@ import { useEffect, useState } from "react";
 function Modal({ showModal, hide, modalInputs, edit }) {
     const [inputs, setInputs] = useState({
         id: "",
-        product: "",
-        quantity: "",
-        price: "",
+        registration_code: "",
+        is_busy: "",
+        last_use_time: "",
+        total_ride_kilometers: "",
     });
   
     const control = (e, what) => {
@@ -17,19 +18,21 @@ function Modal({ showModal, hide, modalInputs, edit }) {
     useEffect(() => {
       setInputs({
         id: modalInputs.id,
-        product: modalInputs.product,
-        quantity: modalInputs.quantity,
-        price: modalInputs.price,
+        registration_code: modalInputs.registration_code,
+        is_busy: modalInputs.is_busy,
+        last_use_time: modalInputs.last_use_time,
+        total_ride_kilometers: modalInputs.total_ride_kilometers,
       });
     }, [modalInputs]);
   
     const handleEdit = () => {
       edit(
         {
-            id: inputs.tidh,
-            product: inputs.product,
-            quantity: inputs.quantity,
-            price: inputs.price,
+            id: inputs.id,
+            registration_code: inputs.registration_code,
+            is_busy: inputs.is_busy,
+            last_use_time: inputs.last_use_time,
+            total_ride_kilometers: inputs.total_ride_kilometers,
         },
         modalInputs.id
       );
@@ -81,42 +84,42 @@ function Modal({ showModal, hide, modalInputs, edit }) {
                 </div>
                 <div className="form-group">
                   <label htmlFor="th2" className="col-form-label">
-                  product
+                  registration_code
                   </label>
                   <input
                     className="form-control"
                     type="text"
                     id="th2"
-                    value={inputs.product}
-                    onChange={(e) => control(e, "product")}
-                    placeholder="Enter product"
+                    value={inputs.registration_code}
+                    onChange={(e) => control(e, "registration_code")}
+                    placeholder="Enter registration_code"
                   />
                 </div>
                 <div className="form-group">
                   <label htmlFor="th3" className="col-form-label">
-                  quantity
+                  is_busy
                   </label>
                   <input
                     className="form-control"
                     type="number"
                     id="th3"
-                    value={inputs.quantity}
-                    onChange={(e) => control(e, "quantity")}
-                    placeholder="Enter quantity"
+                    value={inputs.is_busy}
+                    onChange={(e) => control(e, "is_busy")}
+                    placeholder="Enter is_busy"
                   />
                 </div>
   
                 <div className="form-group">
                   <label htmlFor="th4" className="col-form-label">
-                  price
+                  last_use_time
                   </label>
                   <input
                     className="form-control"
                     type="number"
                     id="th4"
-                    value={inputs.price}
-                    onChange={(e) => control(e, "price")}
-                    placeholder="Enter price"
+                    value={inputs.last_use_time}
+                    onChange={(e) => control(e, "last_use_time")}
+                    placeholder="Enter last_use_time"
                   />
                 </div>
   
