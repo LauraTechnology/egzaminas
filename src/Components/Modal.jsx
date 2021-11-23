@@ -89,20 +89,20 @@ function Modal({ showModal, hide, modalInputs, edit }) {
                   <input
                     className="form-control"
                     type="text"
-                    id="th2"
+                    id="registration_code"
                     value={inputs.registration_code}
                     onChange={(e) => control(e, "registration_code")}
                     placeholder="Enter registration_code"
                   />
                 </div>
                 <div className="form-group">
-                  <label htmlFor="th3" className="col-form-label">
+                  <label htmlFor="is_busy" className="col-form-label">
                   is_busy
                   </label>
                   <input
                     className="form-control"
                     type="number"
-                    id="th3"
+                    id="is_busy"
                     value={inputs.is_busy}
                     onChange={(e) => control(e, "is_busy")}
                     placeholder="Enter is_busy"
@@ -110,16 +110,30 @@ function Modal({ showModal, hide, modalInputs, edit }) {
                 </div>
   
                 <div className="form-group">
-                  <label htmlFor="th4" className="col-form-label">
+                  <label htmlFor="last_use_time" className="col-form-label">
                   last_use_time
                   </label>
                   <input
                     className="form-control"
                     type="number"
-                    id="th4"
+                    id="last_use_time"
                     value={inputs.last_use_time}
                     onChange={(e) => control(e, "last_use_time")}
                     placeholder="Enter last_use_time"
+                  />
+                </div>
+
+                <div className="form-group">
+                  <label htmlFor="total_ride_kilometers" className="col-form-label">
+                  total_ride_kilometers
+                  </label>
+                  <input
+                    className="form-control"
+                    type="number"
+                    id="total_ride_kilometers"
+                    value={inputs.total_ride_kilometers}
+                    onChange={(e) => control(e, "total_ride_kilometers")}
+                    placeholder="Enter total_ride_kilometers"
                   />
                 </div>
   
