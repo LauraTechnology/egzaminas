@@ -26,7 +26,10 @@ function App() {
       .catch((err) => console.log(err));
   }, [lastUpdate]);
 
+
+  
 //Update React
+
   const edit = (item, id) => {
     setShowModal(false);
     axios.put('http://localhost:3003/kolt_scooters/' + id, item)
@@ -34,6 +37,15 @@ function App() {
         setLastUpdate(Date.now());
     })
     .catch((err)=> console.log(err));
+}
+
+const remove = (id) => {
+  setShowModal(false);
+  axios.delete('http://localhost:3003/kolt_scooters/'+id)
+      .then(res => {
+          console.log(res.data);
+          setLastUpdate(Date.now());
+      })
 }
 
   const modal = (item) => {
@@ -65,7 +77,8 @@ function App() {
                     <th>Delete</th>
                   </tr>
                   
-                  <List table={table} modal={modal} />
+                  <List table={table} modal={modal} remove={remove}
+ />
                   </tbody>
                 </table>
                 <Modal
