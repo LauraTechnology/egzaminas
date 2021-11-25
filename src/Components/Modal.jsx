@@ -26,7 +26,6 @@ function Modal({ showModal, hide, modalInputs, edit }) {
     const handleEdit = () => {
       edit(
         {
-            registration_code: inputs.registration_code,
             is_busy: inputs.is_busy,
             last_use_time: inputs.last_use_time,
             total_ride_kilometers: inputs.total_ride_kilometers,
@@ -72,19 +71,9 @@ function Modal({ showModal, hide, modalInputs, edit }) {
                   </label>
                  
                 </div>
-                <div className="form-group">
-                  <label htmlFor="registration_code" className="col-form-label">
-                  registration_code
-                  </label>
-                  <input
-                    className="form-control"
-                    type="text"
-                    id="registration_code"
-                    value={inputs.registration_code}
-                    onChange={(e) => control(e, "registration_code")}
-                    placeholder="Enter registration_code"
-                  />
-                </div>
+
+
+
                 <div className="form-group">
                   <label htmlFor="is_busy" className="col-form-label">
                   is_busy
