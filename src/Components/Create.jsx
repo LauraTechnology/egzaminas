@@ -1,6 +1,6 @@
+import { useState } from "react";
 
-
-function Create() {
+function Create({create}) {
 
     const [inputs, setInputs] = useState ({
         registration_code: "",
@@ -46,3 +46,5 @@ function Create() {
 
     )
 }
+
+export default Create;
