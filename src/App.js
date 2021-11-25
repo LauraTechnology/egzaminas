@@ -1,5 +1,4 @@
 import "./App.css";
-import "./scooters.scss";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import List from "./Components/List";
