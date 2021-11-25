@@ -17,6 +17,14 @@ function Create({create}) {
 
     const handleCreate = () => {
         create(inputs);
+        setInputs({
+            registration_code: "",
+            is_busy: "",
+            last_use_time: "",
+            total_ride_kilometers: ""
+
+        })
+
     }
 
     return (
