@@ -10,6 +10,9 @@ function ScooterStatistics() {
                 <span><i>Scooters Average Ridden Km:</i><b>{statistics.averageRiddenKm.toPrecision(5)} Km</b></span>
             </div>
             <div className="zoo__statistics_gstat">
+                {
+                    groupStats.map(s => <span key={s.type}><i>{s.type}</i> <b>{s.count}</b></span>)
+                }
 
             </div>
         </div>
