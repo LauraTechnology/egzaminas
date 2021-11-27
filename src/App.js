@@ -17,6 +17,18 @@ function App() {
     total_ride_kilometers: "",
   });
 
+  const [statistics, setStatistics] = useState({
+    count: 0,
+    riddenKm: 0,
+    averageRiddenKm: 0
+})
+const [groupStats, setGroupStats] = useState([]);
+
+
+
+
+
+
   const dateOnly = (data) => {
     return data.map((a) => {
       a.last_use_time = a.last_use_time.slice(0, 10);
@@ -24,6 +36,20 @@ function App() {
       return a;
     });
   };
+
+  useEffect(() => {
+    axios.get('http://localhost:3003/statistics')
+        .then(res => {
+            setStatistics(res.data[0]);
+        })
+}, [lastUpdate])
+
+useEffect(() => {
+    axios.get('http://localhost:3003/group-stats')
+        .then(res => {
+            setGroupStatistics(res.data);
+        })
+}, [lastUpdate])
 
   //Create React
   const create = (item) => {

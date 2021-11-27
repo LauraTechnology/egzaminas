@@ -114,10 +114,52 @@ app.get('/kolt_scooters-filter/:t', (req, res) => {
 app.get('/kolt_scooters-is_busy', (req, res) => {
     const sql = `
         SELECT *
-        FROM lentele
+        FROM kolt_scooters
         WHERE is_busy LIKE ?
     `;
     con.query(sql, ['%' + req.query.s + '%'], (err, results) => {
+        if (err) {
+            throw err;
+        }
+        res.send(results);
+    })
+})
+
+// Bendra gyvunu statistika
+// SELECT COUNT(column_name)
+// FROM table_name
+// WHERE condition;
+app.get('/statistics', (req, res) => {
+    const sql = `
+        SELECT COUNT(id) as count, 
+        SUM(riddenKm) as riddenKm,
+        AVG(riddenKm) as averageriddenKm
+        FROM kolt_scooters
+    `;
+    con.query(sql, (err, results) => {
+        if (err) {
+            throw err;
+        }
+        res.send(results);
+    })
+})
+
+
+// Grupine gyvunu statistika
+// SELECT column_name(s)
+// FROM table_name
+// WHERE condition
+// GROUP BY column_name(s)
+// ORDER BY column_name(s);
+
+app.get('/group-statistics', (req, res) => {
+    const sql = `
+        SELECT COUNT(id) as count, last_use_time
+        FROM kolt_scooters
+        GROUP BY last_use_time
+        ORDER BY COUNT(id) DESC, last_use_time
+    `;
+    con.query(sql, (err, results) => {
         if (err) {
             throw err;
         }
