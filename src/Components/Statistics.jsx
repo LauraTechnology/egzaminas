@@ -1,9 +1,9 @@
 // Arvydo pavizdyje Stats == Statistics https://github.com/A-Kija/liutas/blob/main/src/Components/ZooStats.jsx
 
-function ScooterStatistics() {
+function Statistics({statistics, groupStatistics}) {
   return (
-    <div className="scooter__statistics">
-      <div className="zoo__statistics__stat">
+    <div className="statistics">
+      <div className="statistics__stat">
         <span>
           <i> Count:</i>
           <b>{statistics.count}</b>
@@ -18,7 +18,7 @@ function ScooterStatistics() {
         </span>
       </div>
       <div className="zoo__statistics_gstat">
-        {groupStats.map((s) => (
+        {groupStatistics.map((s) => (
           <span key={s.type}>
             <i>{s.type}</i> <b>{s.count}</b>
           </span>
@@ -28,4 +28,4 @@ function ScooterStatistics() {
   );
 }
 
-export default ScooterStatistics;
+export default Statistics;

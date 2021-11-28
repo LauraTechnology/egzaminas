@@ -125,15 +125,15 @@ app.get('/kolt_scooters-is_busy', (req, res) => {
     })
 })
 
-// Bendra gyvunu statistika
+// Bendra scooters statistika
 // SELECT COUNT(column_name)
 // FROM table_name
 // WHERE condition;
 app.get('/statistics', (req, res) => {
     const sql = `
-        SELECT COUNT(id) as count, 
+        SELECT COUNT(id) as registration_code, 
         SUM(riddenKm) as riddenKm,
-        AVG(riddenKm) as averageriddenKm
+        AVG(riddenKm) as average
         FROM kolt_scooters
     `;
     con.query(sql, (err, results) => {

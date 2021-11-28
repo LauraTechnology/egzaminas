@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import List from "./Components/List";
 import Modal from "./Components/Modal";
 import Create from "./Components/Create";
+import Statistics from "./Components/Statistics";
 
 function App() {
   const [table, setTable] = useState([]);
@@ -19,10 +20,10 @@ function App() {
 
   const [statistics, setStatistics] = useState({
     count: 0,
-    riddenKm: 0,
-    averageRiddenKm: 0
+    Km: 0,
+    average: 0
 })
-const [groupStats, setGroupStats] = useState([]);
+const [groupStatistics, setGroupStatistics] = useState([]);
 
 
 
